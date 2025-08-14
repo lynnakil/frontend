@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury Login - Smart Meeting Room</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        font-family: 'Lato', sans-serif;
+        background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    /* Subtle background pattern for richness */
+    body::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+        opacity: 0.15;
+        z-index: 0;
+    }
+
+    .login-container {
+        position: relative;
+        z-index: 1;
+        background: rgba(20, 20, 20, 0.85);
+        border: 1px solid #d4af37;
+        padding: 3rem 2.5rem;
+        border-radius: 15px;
+        width: 350px;
+        text-align: center;
+        box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+        backdrop-filter: blur(10px);
+        animation: fadeIn 1.2s ease;
+    }
+
+    .login-container h1 {
+        font-family: 'Playfair Display', serif;
+        color: #d4af37;
+        margin-bottom: 1rem;
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+
+    .login-container p {
+        font-size: 0.9rem;
+        color: #ccc;
+        margin-bottom: 2rem;
+    }
+
+    .form-control {
+        margin-bottom: 1.2rem;
+        text-align: left;
+    }
+
+    .form-control label {
+        display: block;
+        margin-bottom: 0.4rem;
+        font-size: 0.85rem;
+        color: #d4af37;
+        font-weight: 500;
+    }
+
+    .form-control input {
+        width: 100%;
+        padding: 0.7rem;
+        border-radius: 8px;
+        border: 1px solid #444;
+        background: #111;
+        color: #fff;
+        font-size: 0.9rem;
+        outline: none;
+        transition: border-color 0.3s ease;
+    }
+
+    .form-control input:focus {
+        border-color: #d4af37;
+        box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+    }
+
+    .login-btn {
+        width: 100%;
+        padding: 0.8rem;
+        border: none;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #d4af37, #b8860b);
+        color: #0d0d0d;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+    }
+
+    .login-btn:hover {
+        background: linear-gradient(135deg, #e6c363, #d4af37);
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+    }
+
+    .footer-text {
+        margin-top: 1.5rem;
+        font-size: 0.85rem;
+        color: #999;
+    }
+
+    .footer-text a {
+        color: #d4af37;
+        text-decoration: none;
+    }
+
+    .footer-text a:hover {
+        text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(20px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+</style>
+</head>
+<body>
+
+<div class="login-container">
+    <h1>Welcome Back</h1>
+    <p>Sign in to manage your meetings</p>
+
+    <form>
+        <div class="form-control">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="you@example.com" required>
+        </div>
+
+        <div class="form-control">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+        </div>
+
+        <button type="submit" class="login-btn">Sign In</button>
+    </form>
+
+    <div class="footer-text">
+        Don't have an account? <a href="#">Register</a>
+    </div>
+</div>
+
+</body>
+</html>
