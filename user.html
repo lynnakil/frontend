@@ -125,6 +125,8 @@
         from {opacity: 0; transform: translateY(20px);}
         to {opacity: 1; transform: translateY(0);}
     }
+   
+
 </style>
 </head>
 <body>
@@ -133,7 +135,8 @@
     <h1>Welcome Back</h1>
     <p>Sign in to manage your meetings</p>
 
-    <form>
+    <form id="loginForm">
+>
         <div class="form-control">
             <label for="email">Email Address</label>
             <input type="email" id="email" placeholder="you@example.com" required>
@@ -146,11 +149,44 @@
 
         <button type="submit" class="login-btn">Sign In</button>
     </form>
+<p id="message" style="margin-top:1rem; color:#d4af37; font-size:0.9rem;"></p>
 
     <div class="footer-text">
         Don't have an account? <a href="#">Register</a>
     </div>
 </div>
+<script>
+document.getElementById("loginForm").addEventListener("submit", async function(e) {
+    e.preventDefault(); // ما يخلي الصفحة تعيد تحميل نفسها
+
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let msg = document.getElementById("message");
+
+    try {
+        let response = await fetch("http://localhost:8000/api/auth/login", { // ⬅️ نفس رابط Postman
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password })
+        });
+
+        let data = await response.json();
+
+        if (response.ok) {
+            msg.textContent = "✅ Login successful!";
+            // خزني التوكن
+            localStorage.setItem("token", data.token);
+            // روحي على صفحة تانية
+            // window.location.href = "dashboard.html";
+        } else {
+            msg.textContent = "❌ " + (data.message || "Login failed");
+        }
+    } catch (err) {
+        msg.textContent = "⚠️ Error connecting to server";
+        console.error(err);
+    }
+});
+</script>
 
 </body>
 </html>
